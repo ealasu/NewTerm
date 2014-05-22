@@ -140,7 +140,7 @@ typedef struct {
 		int type;
 		unsigned char *position;
 		int length;
-		union {
+		struct {
 				NSString *string;
 				unsigned char code;
 				struct {
