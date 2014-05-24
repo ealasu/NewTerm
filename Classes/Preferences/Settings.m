@@ -19,37 +19,37 @@ static int kDefaultMenuItemsCount = sizeof(kDefaultMenuItems) / sizeof(NSString 
 */
 
 void PreferencesDidChange() {
-	[[Settings sharedInstance] reload];
+    [[Settings sharedInstance] reload];
 }
 
 @implementation Settings
 
 + (instancetype)sharedInstance {
-	static Settings *sharedInstance = nil;
-	static dispatch_once_t onceToken;
-	dispatch_once(&onceToken, ^{
-		sharedInstance = [[self.class alloc] init];
-	});
-	
-	return sharedInstance;
+    static Settings *sharedInstance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [[self.class alloc] init];
+    });
+
+    return sharedInstance;
 }
 
 - (instancetype)init {
-	self = [super init];
-	
-	if (self) {
-		_menuSettings = [[MenuSettings alloc] init];
-		_gestureSettings = [[GestureSettings alloc] init];
-		_terminalSettings = [[TerminalSettings alloc] init];
-		
-		CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, (CFNotificationCallback)PreferencesDidChange, CFSTR("ws.hbang.Terminal/ReloadPrefs"), NULL, 0);
-	}
-	
-	return self;
+    self = [super init];
+
+    if (self) {
+        _menuSettings = [[MenuSettings alloc] init];
+        _gestureSettings = [[GestureSettings alloc] init];
+        _terminalSettings = [[TerminalSettings alloc] init];
+
+        CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, (CFNotificationCallback) PreferencesDidChange, CFSTR("ws.hbang.Terminal/ReloadPrefs"), NULL, 0);
+    }
+
+    return self;
 }
 
 - (void)reload {
-	[_terminalSettings reload];
+    [_terminalSettings reload];
 }
 
 /*
@@ -80,10 +80,10 @@ void PreferencesDidChange() {
 */
 
 - (void)dealloc {
-	[_menuSettings release];
-	[_gestureSettings release];
-	[_terminalSettings release];
-	[super dealloc];
+    [_menuSettings release];
+    [_gestureSettings release];
+    [_terminalSettings release];
+    [super dealloc];
 }
 
 @end

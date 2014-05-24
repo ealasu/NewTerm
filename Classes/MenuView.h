@@ -17,17 +17,17 @@
 // is laid out as a scrollable table view, sized based on the font.
 @interface MenuView : UIView <UITableViewDataSource> {
 @private
-	UITableView *menuTableView;
-	UIFont *font;
-	MenuSettings *menuSettings;
-	id<MenuViewDelegate> delegate;
+    UITableView *menuTableView;
+    UIFont *font;
+    MenuSettings *menuSettings;
+    id <MenuViewDelegate> delegate;
 }
 
-@property (nonatomic, retain) IBOutlet UITableView *menuTableView;
-@property (nonatomic, retain) IBOutlet UIFont *font;
-@property (nonatomic, retain) IBOutlet MenuSettings *menuSettings;
-@property (nonatomic, retain) IBOutlet id<MenuViewDelegate> delegate;
+@property(nonatomic, retain) IBOutlet UITableView *menuTableView;
+@property(nonatomic, retain) IBOutlet UIFont *font;
+@property(nonatomic, retain) IBOutlet MenuSettings *menuSettings;
+@property(nonatomic, retain) IBOutlet id <MenuViewDelegate> delegate;
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;	 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @end

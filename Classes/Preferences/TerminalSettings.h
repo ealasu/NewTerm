@@ -12,8 +12,8 @@ static NSString *const TerminalSettingsDidChange = @"TerminalSettingsDidChange";
 
 - (void)reload;
 
-@property (nonatomic, retain) UIFont *font;
-@property (nonatomic, retain) ColorMap *colorMap;
-@property (nonatomic, retain) NSString *arguments;
+@property(nonatomic, retain) UIFont *font;
+@property(nonatomic, retain) ColorMap *colorMap;
+@property(nonatomic, retain) NSString *arguments;
 
 @end

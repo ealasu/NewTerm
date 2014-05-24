@@ -12,19 +12,19 @@ static const int kMaxRowBufferSize = 200;
 
 // TODO(allen): Include the dirty bit in this struct
 typedef struct screen_char_t {
-		unichar ch;	 // the actual character
-		unsigned int bg_color;	// background color
-		unsigned int fg_color;	// foreground color
+    unichar ch;     // the actual character
+    unsigned int bg_color;    // background color
+    unsigned int fg_color;    // foreground color
 } screen_char_t;
 
 typedef struct {
-	int width;
-	int height;
+    int width;
+    int height;
 } ScreenSize;
 
 typedef struct {
-	int x;
-	int y;
+    int x;
+    int y;
 } ScreenPosition;
 
 // The protocol for reading and writing data to the terminal screen
@@ -42,7 +42,8 @@ typedef struct {
 - (ScreenPosition)cursorPosition;
 
 // Row indexes include scrollback
-- (screen_char_t*)bufferForRow:(int)row;
+- (screen_char_t *)bufferForRow:(int)row;
+
 - (int)numberOfRows;
 
 - (void)readInputStream:(NSData *)data;
@@ -50,10 +51,15 @@ typedef struct {
 - (void)clearScreen;
 
 - (void)clearSelection;
+
 - (BOOL)hasSelection;
+
 - (void)setSelectionStart:(ScreenPosition)point;
+
 - (ScreenPosition)selectionStart;
+
 - (void)setSelectionEnd:(ScreenPosition)point;
+
 - (ScreenPosition)selectionEnd;
 
 @end
@@ -71,7 +77,9 @@ typedef struct {
 // etc).	The row index includes space in the scrollback buffer.
 @protocol AttributedStringSupplier
 - (int)rowCount;
+
 - (CFStringRef)newString:(int)rowIndex;
+
 - (CFAttributedStringRef)newAttributedString:(int)rowIndex;
 @end
 

@@ -38,10 +38,10 @@
 
 // VT100TCC types
 #define VT100CC_NULL 0
-#define VT100CC_ENQ 5		 // Transmit ANSWERBACK message
-#define VT100CC_BEL 7		 // Sound bell
-#define VT100CC_BS 8		// Move cursor to the left
-#define VT100CC_HT 9		// Move cursor to the next tab stop
+#define VT100CC_ENQ 5         // Transmit ANSWERBACK message
+#define VT100CC_BEL 7         // Sound bell
+#define VT100CC_BS 8        // Move cursor to the left
+#define VT100CC_HT 9        // Move cursor to the next tab stop
 #define VT100CC_LF 10 // line feed or new line operation
 #define VT100CC_VT 11 // Same as <LF>.
 #define VT100CC_FF 12 // Same as <LF>.
@@ -137,19 +137,19 @@
 @class VT100Screen;
 
 typedef struct {
-		int type;
-		unsigned char *position;
-		int length;
-		struct {
-				NSString *string;
-				unsigned char code;
-				struct {
-						int p[VT100CSIPARAM_MAX];
-						int count;
-						BOOL question;
-						int modifier;
-				} csi;
-		} u;
+    int type;
+    unsigned char *position;
+    int length;
+    struct {
+        NSString *string;
+        unsigned char code;
+        struct {
+            int p[VT100CSIPARAM_MAX];
+            int count;
+            BOOL question;
+            int modifier;
+        } csi;
+    } u;
 } VT100TCC;
 
 // character attributes
@@ -166,16 +166,16 @@ typedef struct {
 #define VT100CHARATTR_POSITIVE 27
 
 typedef enum {
-		COLORCODE_BLACK=0,
-		COLORCODE_RED=1,
-		COLORCODE_GREEN=2,
-		COLORCODE_YELLOW=3,
-		COLORCODE_BLUE=4,
-		COLORCODE_PURPLE=5,
-		COLORCODE_WATER=6,
-		COLORCODE_WHITE=7,
-		COLORCODE_256=8,
-		COLORS
+    COLORCODE_BLACK = 0,
+    COLORCODE_RED = 1,
+    COLORCODE_GREEN = 2,
+    COLORCODE_YELLOW = 3,
+    COLORCODE_BLUE = 4,
+    COLORCODE_PURPLE = 5,
+    COLORCODE_WATER = 6,
+    COLORCODE_WHITE = 7,
+    COLORCODE_256 = 8,
+    COLORS
 } colorCode;
 
 // 8 color support
@@ -241,141 +241,182 @@ typedef enum {
 
 // terminfo stuff
 enum {
-		TERMINFO_KEY_LEFT, TERMINFO_KEY_RIGHT, TERMINFO_KEY_UP, TERMINFO_KEY_DOWN,
-		TERMINFO_KEY_HOME, TERMINFO_KEY_END, TERMINFO_KEY_PAGEDOWN, TERMINFO_KEY_PAGEUP,
-		TERMINFO_KEY_F0, TERMINFO_KEY_F1, TERMINFO_KEY_F2, TERMINFO_KEY_F3, TERMINFO_KEY_F4,
-		TERMINFO_KEY_F5, TERMINFO_KEY_F6, TERMINFO_KEY_F7, TERMINFO_KEY_F8, TERMINFO_KEY_F9,
-		TERMINFO_KEY_F10, TERMINFO_KEY_F11, TERMINFO_KEY_F12, TERMINFO_KEY_F13, TERMINFO_KEY_F14,
-		TERMINFO_KEY_F15, TERMINFO_KEY_F16, TERMINFO_KEY_F17, TERMINFO_KEY_F18, TERMINFO_KEY_F19,
-		TERMINFO_KEY_F20, TERMINFO_KEY_F21, TERMINFO_KEY_F22, TERMINFO_KEY_F23, TERMINFO_KEY_F24,
-		TERMINFO_KEY_F25, TERMINFO_KEY_F26, TERMINFO_KEY_F27, TERMINFO_KEY_F28, TERMINFO_KEY_F29,
-		TERMINFO_KEY_F30, TERMINFO_KEY_F31, TERMINFO_KEY_F32, TERMINFO_KEY_F33, TERMINFO_KEY_F34,
-		TERMINFO_KEY_F35,
-		TERMINFO_KEY_BACKSPACE, TERMINFO_KEY_BACK_TAB,
-		TERMINFO_KEY_TAB,
-		TERMINFO_KEY_DEL, TERMINFO_KEY_INS,
-		TERMINFO_KEY_HELP,
-		TERMINFO_KEYS
+    TERMINFO_KEY_LEFT, TERMINFO_KEY_RIGHT, TERMINFO_KEY_UP, TERMINFO_KEY_DOWN,
+    TERMINFO_KEY_HOME, TERMINFO_KEY_END, TERMINFO_KEY_PAGEDOWN, TERMINFO_KEY_PAGEUP,
+    TERMINFO_KEY_F0, TERMINFO_KEY_F1, TERMINFO_KEY_F2, TERMINFO_KEY_F3, TERMINFO_KEY_F4,
+    TERMINFO_KEY_F5, TERMINFO_KEY_F6, TERMINFO_KEY_F7, TERMINFO_KEY_F8, TERMINFO_KEY_F9,
+    TERMINFO_KEY_F10, TERMINFO_KEY_F11, TERMINFO_KEY_F12, TERMINFO_KEY_F13, TERMINFO_KEY_F14,
+    TERMINFO_KEY_F15, TERMINFO_KEY_F16, TERMINFO_KEY_F17, TERMINFO_KEY_F18, TERMINFO_KEY_F19,
+    TERMINFO_KEY_F20, TERMINFO_KEY_F21, TERMINFO_KEY_F22, TERMINFO_KEY_F23, TERMINFO_KEY_F24,
+    TERMINFO_KEY_F25, TERMINFO_KEY_F26, TERMINFO_KEY_F27, TERMINFO_KEY_F28, TERMINFO_KEY_F29,
+    TERMINFO_KEY_F30, TERMINFO_KEY_F31, TERMINFO_KEY_F32, TERMINFO_KEY_F33, TERMINFO_KEY_F34,
+    TERMINFO_KEY_F35,
+    TERMINFO_KEY_BACKSPACE, TERMINFO_KEY_BACK_TAB,
+    TERMINFO_KEY_TAB,
+    TERMINFO_KEY_DEL, TERMINFO_KEY_INS,
+    TERMINFO_KEY_HELP,
+    TERMINFO_KEYS
 };
 
 typedef enum {
-		MOUSE_REPORTING_NONE = -1,
-		MOUSE_REPORTING_NORMAL = 0,
-		MOUSE_REPORTING_HILITE,
-		MOUSE_REPORTING_BUTTON_MOTION,
-		MOUSE_REPORTING_ALL_MOTION,
+    MOUSE_REPORTING_NONE = -1,
+    MOUSE_REPORTING_NORMAL = 0,
+    MOUSE_REPORTING_HILITE,
+    MOUSE_REPORTING_BUTTON_MOTION,
+    MOUSE_REPORTING_ALL_MOTION,
 } mouseMode;
 
 @interface VT100Terminal : NSObject {
-		NSString *termType;
-		NSStringEncoding ENCODING;
-		VT100Screen *SCREEN;
-		NSLock *streamLock;
+    NSString *termType;
+    NSStringEncoding ENCODING;
+    VT100Screen *SCREEN;
+    NSLock *streamLock;
 
-		unsigned char *STREAM;
-		int current_stream_length;
-		int total_stream_length;
+    unsigned char *STREAM;
+    int current_stream_length;
+    int total_stream_length;
 
-		BOOL LINE_MODE; // YES=Newline, NO=Line feed
-		BOOL CURSOR_MODE; // YES=Application, NO=Cursor
-		BOOL ANSI_MODE; // YES=ANSI, NO=VT52
-		BOOL COLUMN_MODE; // YES=132 Column, NO=80 Column
-		BOOL SCROLL_MODE; // YES=Smooth, NO=Jump
-		BOOL SCREEN_MODE; // YES=Reverse, NO=Normal
-		BOOL ORIGIN_MODE; // YES=Relative, NO=Absolute
-		BOOL WRAPAROUND_MODE; // YES=On, NO=Off
-		BOOL AUTOREPEAT_MODE; // YES=On, NO=Off
-		BOOL INTERLACE_MODE; // YES=On, NO=Off
-		BOOL KEYPAD_MODE; // YES=Application, NO=Numeric
-		BOOL INSERT_MODE; // YES=Insert, NO=Replace
-		int CHARSET; // G0...G3
-		BOOL XON; // YES=XON, NO=XOFF
-		BOOL numLock; // YES=ON, NO=OFF, default=YES;
-		mouseMode MOUSE_MODE;
+    BOOL LINE_MODE; // YES=Newline, NO=Line feed
+    BOOL CURSOR_MODE; // YES=Application, NO=Cursor
+    BOOL ANSI_MODE; // YES=ANSI, NO=VT52
+    BOOL COLUMN_MODE; // YES=132 Column, NO=80 Column
+    BOOL SCROLL_MODE; // YES=Smooth, NO=Jump
+    BOOL SCREEN_MODE; // YES=Reverse, NO=Normal
+    BOOL ORIGIN_MODE; // YES=Relative, NO=Absolute
+    BOOL WRAPAROUND_MODE; // YES=On, NO=Off
+    BOOL AUTOREPEAT_MODE; // YES=On, NO=Off
+    BOOL INTERLACE_MODE; // YES=On, NO=Off
+    BOOL KEYPAD_MODE; // YES=Application, NO=Numeric
+    BOOL INSERT_MODE; // YES=Insert, NO=Replace
+    int CHARSET; // G0...G3
+    BOOL XON; // YES=XON, NO=XOFF
+    BOOL numLock; // YES=ON, NO=OFF, default=YES;
+    mouseMode MOUSE_MODE;
 
-		int FG_COLORCODE;
-		int BG_COLORCODE;
-		int bold, under, blink, reversed, highlight;
+    int FG_COLORCODE;
+    int BG_COLORCODE;
+    int bold, under, blink, reversed, highlight;
 
-		int saveBold, saveUnder, saveBlink, saveReversed, saveHighlight;
-		int saveCHARSET;
+    int saveBold, saveUnder, saveBlink, saveReversed, saveHighlight;
+    int saveCHARSET;
 
-		BOOL TRACE;
+    BOOL TRACE;
 
-		BOOL strictAnsiMode;
-		BOOL allowColumnMode;
+    BOOL strictAnsiMode;
+    BOOL allowColumnMode;
 
-		BOOL allowKeypadMode;
+    BOOL allowKeypadMode;
 
-		unsigned int streamOffset;
+    unsigned int streamOffset;
 
-		//terminfo
-		char *key_strings[TERMINFO_KEYS];
+    //terminfo
+    char *key_strings[TERMINFO_KEYS];
 }
 
 - (id)init;
+
 - (void)dealloc;
 
 - (NSString *)termtype;
+
 - (void)setTermType:(NSString *)termtype;
 
 - (BOOL)trace;
+
 - (void)setTrace:(BOOL)flag;
 
 - (BOOL)strictAnsiMode;
+
 - (void)setStrictAnsiMode:(BOOL)flag;
 
 - (BOOL)allowColumnMode;
+
 - (void)setAllowColumnMode:(BOOL)flag;
 
 - (NSStringEncoding)encoding;
+
 - (void)setEncoding:(NSStringEncoding)encoding;
 
 - (void)cleanStream;
+
 - (void)putStreamData:(NSData *)data;
+
 - (VT100TCC)getNextToken;
 
 - (void)reset;
 
 - (NSData *)keyArrowUp:(unsigned int)modflag;
+
 - (NSData *)keyArrowDown:(unsigned int)modflag;
+
 - (NSData *)keyArrowLeft:(unsigned int)modflag;
+
 - (NSData *)keyArrowRight:(unsigned int)modflag;
+
 - (NSData *)keyHome:(unsigned int)modflag;
+
 - (NSData *)keyEnd:(unsigned int)modflag;
+
 - (NSData *)keyInsert;
+
 - (NSData *)keyDelete;
+
 - (NSData *)keyBackspace;
+
 - (NSData *)keyPageUp;
+
 - (NSData *)keyPageDown;
+
 - (NSData *)keyFunction:(int)no;
+
 - (NSData *)keyPFn:(int)n;
+
 - (NSData *)keypadData:(unichar)unicode keystr:(NSString *)keystr;
 
 - (BOOL)lineMode;
+
 - (BOOL)cursorMode;
+
 - (BOOL)columnMode;
+
 - (BOOL)scrollMode;
+
 - (BOOL)screenMode;
+
 - (BOOL)originMode;
+
 - (BOOL)wraparoundMode;
+
 - (BOOL)autorepeatMode;
+
 - (BOOL)interlaceMode;
+
 - (BOOL)keypadMode;
+
 - (BOOL)insertMode;
+
 - (int)charset;
+
 - (BOOL)xon;
+
 - (mouseMode)mouseMode;
 
 - (int)foregroundColorCode;
+
 - (int)backgroundColorCode;
 
 - (NSData *)reportActivePositionWithX:(int)x Y:(int)y;
+
 - (NSData *)reportStatus;
+
 - (NSData *)reportDeviceAttribute;
+
 - (NSData *)reportSecondaryDeviceAttribute;
+
 - (void)setMode:(VT100TCC)token;
+
 - (void)setCharAttr:(VT100TCC)token;
+
 - (void)setScreen:(VT100Screen *)sc;
 
 @end

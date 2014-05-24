@@ -16,21 +16,21 @@ static const int kControlCharacter = 0x2022;
 // copy and paste events.
 @interface TerminalKeyInput : UITextInputBase
 
-@property (nonatomic, retain) TerminalKeyboard *keyboard;
+@property(nonatomic, retain) TerminalKeyboard *keyboard;
 
 // Should the next character pressed be a control character?
-@property (nonatomic) BOOL controlKeyMode;
-@property (copy) void(^controlKeyChanged)();
+@property(nonatomic) BOOL controlKeyMode;
+@property(copy) void(^controlKeyChanged)();
 
 // UIKeyInput
-@property (nonatomic) UITextAutocapitalizationType autocapitalizationType;
-@property (nonatomic) UITextAutocorrectionType autocorrectionType;
-@property (nonatomic) BOOL enablesReturnKeyAutomatically;
-@property (nonatomic) UIKeyboardAppearance keyboardAppearance;
-@property (nonatomic) UIKeyboardType keyboardType;
-@property (nonatomic) UIReturnKeyType returnKeyType;
-@property (nonatomic, getter=isSecureTextEntry) BOOL secureTextEntry;
-@property (nonatomic, retain) UIView *inputAccessoryView;
+@property(nonatomic) UITextAutocapitalizationType autocapitalizationType;
+@property(nonatomic) UITextAutocorrectionType autocorrectionType;
+@property(nonatomic) BOOL enablesReturnKeyAutomatically;
+@property(nonatomic) UIKeyboardAppearance keyboardAppearance;
+@property(nonatomic) UIKeyboardType keyboardType;
+@property(nonatomic) UIReturnKeyType returnKeyType;
+@property(nonatomic, getter=isSecureTextEntry) BOOL secureTextEntry;
+@property(nonatomic, retain) UIView *inputAccessoryView;
 
 - (id)initWithKeyboard:(TerminalKeyboard *)theKeyboard;
 

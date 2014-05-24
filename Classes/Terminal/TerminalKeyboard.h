@@ -19,12 +19,13 @@
 // There is typically only ever one instance of TerminalKeyboard.
 @interface TerminalKeyboard : UIView
 
-@property (nonatomic, retain) id<TerminalKeyboardProtocol> inputDelegate;
-@property (nonatomic, retain) UIView <UITextInput>* inputTextField;
+@property(nonatomic, retain) id <TerminalKeyboardProtocol> inputDelegate;
+@property(nonatomic, retain) UIView <UITextInput> *inputTextField;
 
 // Show and hide the keyboard, respectively.	Callers can listen to system
 // keyboard notifications to get notified when the keyboard is shown.
 - (BOOL)becomeFirstResponder;
+
 - (BOOL)resignFirstResponder;
 
 @end

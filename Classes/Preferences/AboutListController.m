@@ -17,17 +17,17 @@
 #pragma mark - PSListController
 
 - (NSArray *)specifiers {
-	if (!_specifiers) {
-		_specifiers = [[self loadSpecifiersFromPlistName:@"About" target:self] retain];
-	}
-	
-	return _specifiers;
+    if (!_specifiers) {
+        _specifiers = [[self loadSpecifiersFromPlistName:@"About" target:self] retain];
+    }
+
+    return _specifiers;
 }
 
 #pragma mark - Callbacks
 
 - (void)openGitHubIssues {
-	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://github.com/hbang/NewTerm/issues"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://github.com/hbang/NewTerm/issues"]];
 }
 
 @end

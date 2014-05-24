@@ -9,15 +9,16 @@
 
 @interface ColorMap : NSObject
 
-@property (nonatomic, retain, readonly) UIColor *background;
-@property (nonatomic, retain, readonly) UIColor *foreground;
-@property (nonatomic, retain, readonly) UIColor *foregroundBold;
-@property (nonatomic, retain, readonly) UIColor *foregroundCursor;
-@property (nonatomic, retain, readonly) UIColor *backgroundCursor;
+@property(nonatomic, retain, readonly) UIColor *background;
+@property(nonatomic, retain, readonly) UIColor *foreground;
+@property(nonatomic, retain, readonly) UIColor *foregroundBold;
+@property(nonatomic, retain, readonly) UIColor *foregroundCursor;
+@property(nonatomic, retain, readonly) UIColor *backgroundCursor;
 
-@property (readonly) BOOL isDark;
+@property(readonly) BOOL isDark;
 
 - (instancetype)init;
+
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 // Terminal color index

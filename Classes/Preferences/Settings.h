@@ -17,8 +17,8 @@
 
 - (void)reload;
 
-@property (nonatomic, retain) MenuSettings *menuSettings;
-@property (nonatomic, retain) GestureSettings *gestureSettings;
-@property (nonatomic, retain) TerminalSettings *terminalSettings;
+@property(nonatomic, retain) MenuSettings *menuSettings;
+@property(nonatomic, retain) GestureSettings *gestureSettings;
+@property(nonatomic, retain) TerminalSettings *terminalSettings;
 
 @end

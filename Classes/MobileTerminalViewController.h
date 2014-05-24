@@ -11,9 +11,9 @@
 
 @interface MobileTerminalViewController : UIViewController <UIPopoverControllerDelegate>
 
-@property (nonatomic, retain) UIButton *preferencesButton;
-@property (nonatomic, retain) GestureResponder *gestureResponder;
-@property (nonatomic, retain) GestureActionRegistry *gestureActionRegistry;
+@property(nonatomic, retain) UIButton *preferencesButton;
+@property(nonatomic, retain) GestureResponder *gestureResponder;
+@property(nonatomic, retain) GestureActionRegistry *gestureActionRegistry;
 
 @end
 
