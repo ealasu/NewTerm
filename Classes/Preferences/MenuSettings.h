@@ -36,15 +36,15 @@
 - (void)encodeWithCoder:(NSCoder *)encoder;
 
 // Number of menu items
-- (int)menuItemCount;
+- (NSUInteger)menuItemCount;
 
 // The label and command
-- (MenuItem *)menuItemAtIndex:(int)index;
+- (MenuItem *)menuItemAtIndex:(NSUInteger)index;
 
 // Add a new item to the label
 - (void)addMenuItem:(MenuItem *)menuItem;
 
 // Remove the specified item
-- (void)removeMenuItemAtIndex:(int)index;
+- (void)removeMenuItemAtIndex:(NSUInteger)index;
 
 @end

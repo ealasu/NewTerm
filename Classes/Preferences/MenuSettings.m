@@ -85,11 +85,11 @@ static NSString *kMenuItemsKey = @"menuitems";
     [encoder encodeObject:menuItems forKey:kMenuItemsKey];
 }
 
-- (int)menuItemCount {
+- (NSUInteger)menuItemCount {
     return [menuItems count];
 }
 
-- (MenuItem *)menuItemAtIndex:(int)index {
+- (MenuItem *)menuItemAtIndex:(NSUInteger)index {
     return [menuItems objectAtIndex:index];
 }
 
@@ -97,7 +97,7 @@ static NSString *kMenuItemsKey = @"menuitems";
     [menuItems addObject:menuItem];
 }
 
-- (void)removeMenuItemAtIndex:(int)index {
+- (void)removeMenuItemAtIndex:(NSUInteger)index {
     [menuItems removeObjectAtIndex:index];
 }
 

@@ -1101,7 +1101,7 @@ static VT100TCC decode_string(unsigned char *datap, size_t datalen,
                 autorelease];
 
         if (result.u.string == nil) {
-            int i;
+            long i;
             for (i = *rmlen - 1; i >= 0 && !result.u.string; i--) {
                 datap[i] = UNKNOWN;
                 result.u.string =
@@ -1123,7 +1123,7 @@ static VT100TCC decode_string(unsigned char *datap, size_t datalen,
 
     ENCODING = NSASCIIStringEncoding;
     total_stream_length = STANDARD_STREAM_SIZE;
-    STREAM = malloc(total_stream_length);
+    STREAM = (unsigned char*)malloc(total_stream_length);
     current_stream_length = 0;
 
     streamLock = [[NSLock alloc] init];
@@ -1303,13 +1303,13 @@ static VT100TCC decode_string(unsigned char *datap, size_t datalen,
 
 - (void)putStreamData:(NSData *)data {
     unsigned char *buffer = (unsigned char *) [data bytes];
-    int length = [data length];
+    auto length = [data length];
     [streamLock lock];
     if (current_stream_length + length > total_stream_length) {
-        int n = (length + current_stream_length) / STANDARD_STREAM_SIZE;
+        auto n = (length + current_stream_length) / STANDARD_STREAM_SIZE;
 
         total_stream_length += n * STANDARD_STREAM_SIZE;
-        STREAM = reallocf(STREAM, total_stream_length);
+        STREAM = (unsigned char*)reallocf(STREAM, total_stream_length);
     }
 
     memcpy(STREAM + current_stream_length, buffer, length);
@@ -1342,7 +1342,7 @@ static VT100TCC decode_string(unsigned char *datap, size_t datalen,
             // to avoid allowing this to grow too big.
             free(STREAM);
             total_stream_length = STANDARD_STREAM_SIZE;
-            STREAM = malloc(total_stream_length);
+            STREAM = (unsigned char*)malloc(total_stream_length);
         }
     } else {
         size_t rmlen = 0;
@@ -1771,7 +1771,7 @@ static VT100TCC decode_string(unsigned char *datap, size_t datalen,
                     /* case 1001: */ /* MOUSE_REPORTING_HILITE not implemented yet */
                 case 1002:
                 case 1003:
-                    if (mode) MOUSE_MODE = token.u.csi.p[0] - 1000;
+                    if (mode) MOUSE_MODE = (mouseMode)(token.u.csi.p[0] - 1000);
                     else MOUSE_MODE = MOUSE_REPORTING_NONE;
                     break;
             }

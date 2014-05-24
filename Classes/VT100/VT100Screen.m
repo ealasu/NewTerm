@@ -41,7 +41,7 @@
 #define REAL_WIDTH (WIDTH+1)
 
 /* translates normal char into graphics char */
-void translate(screen_char_t *s, int len) {
+void translate(screen_char_t *s, NSUInteger len) {
     int i;
     for (i = 0; i < len; i++) {
         s[i].ch = charmap[(int) (s[i].ch)];
@@ -49,10 +49,10 @@ void translate(screen_char_t *s, int len) {
 }
 
 /* pad the source string whenever double width character appears */
-void padString(NSString *s, screen_char_t *buf, int fg, int bg, int *len,
+void padString(NSString *s, screen_char_t *buf, int fg, int bg, NSUInteger *len,
         NSStringEncoding encoding) {
-    int l = *len;
-    int i, j;
+    NSUInteger l = *len;
+    NSUInteger i, j;
     for (i = j = 0; i < l; i++, j++) {
         buf[j].ch = [s characterAtIndex:i];
         buf[j].fg_color = fg;
@@ -860,7 +860,7 @@ static __inline__ screen_char_t *incrementLinePointer(
     if (temp_buffer)
         free(temp_buffer);
 
-    int n = (screen_top - buffer_lines) / REAL_WIDTH - max_scrollback_lines;
+    size_t n = (screen_top - buffer_lines) / REAL_WIDTH - max_scrollback_lines;
 
     temp_buffer = (screen_char_t *) malloc(size * (sizeof(screen_char_t)));
     if (n <= 0)
@@ -884,7 +884,7 @@ static __inline__ screen_char_t *incrementLinePointer(
 
     [self acquireLock];
 
-    int n = (screen_top - buffer_lines) / REAL_WIDTH - max_scrollback_lines;
+    size_t n = (screen_top - buffer_lines) / REAL_WIDTH - max_scrollback_lines;
 
     if (n <= 0)
         memcpy(screen_top, temp_buffer, REAL_WIDTH * HEIGHT * sizeof(screen_char_t));
@@ -923,7 +923,7 @@ static __inline__ screen_char_t *incrementLinePointer(
 						__FILE__, __LINE__, string, CURSOR_X);
 #endif
 
-    int len;
+    NSUInteger len;
     if ((len = [string length]) < 1 || !string) {
         NSLog(@"%s: invalid string '%@'", __PRETTY_FUNCTION__, string);
         return;

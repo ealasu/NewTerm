@@ -13,7 +13,7 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		28D7ACF80DDB3853001CB0EB /* MobileTerminalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* MobileTerminalViewController.m */; };
-		2C11C5801013A54300A2746E /* VT100Terminal.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C11C5661013A4E500A2746E /* VT100Terminal.m */; };
+		2C11C5801013A54300A2746E /* VT100Terminal.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2C11C5661013A4E500A2746E /* VT100Terminal.mm */; };
 		2C11C5821013A54300A2746E /* VT100.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C11C5691013A4E500A2746E /* VT100.m */; };
 		2C11C5831013A54300A2746E /* VT100Screen.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C11C56A1013A4E500A2746E /* VT100Screen.m */; };
 		2C11C5841013A54300A2746E /* ColorMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C11C56C1013A4E500A2746E /* ColorMap.m */; };
@@ -199,7 +199,7 @@
 		2C11C5631013A4E500A2746E /* VT100Screen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VT100Screen.h; path = VT100/VT100Screen.h; sourceTree = "<group>"; };
 		2C11C5641013A4E500A2746E /* VT100Terminal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VT100Terminal.h; path = VT100/VT100Terminal.h; sourceTree = "<group>"; };
 		2C11C5651013A4E500A2746E /* ColorMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorMap.h; path = VT100/ColorMap.h; sourceTree = "<group>"; };
-		2C11C5661013A4E500A2746E /* VT100Terminal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VT100Terminal.m; path = VT100/VT100Terminal.m; sourceTree = "<group>"; };
+		2C11C5661013A4E500A2746E /* VT100Terminal.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = VT100Terminal.mm; path = VT100/VT100Terminal.mm; sourceTree = "<group>"; };
 		2C11C5681013A4E500A2746E /* charmaps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = charmaps.h; path = VT100/charmaps.h; sourceTree = "<group>"; };
 		2C11C5691013A4E500A2746E /* VT100.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VT100.m; path = VT100/VT100.m; sourceTree = "<group>"; };
 		2C11C56A1013A4E500A2746E /* VT100Screen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VT100Screen.m; path = VT100/VT100Screen.m; sourceTree = "<group>"; };
@@ -461,7 +461,7 @@
 				9FE3EF4B12D2647500CF3F00 /* VT100TableViewController.h */,
 				9FE3EF4C12D2647500CF3F00 /* VT100TableViewController.m */,
 				2C11C5641013A4E500A2746E /* VT100Terminal.h */,
-				2C11C5661013A4E500A2746E /* VT100Terminal.m */,
+				2C11C5661013A4E500A2746E /* VT100Terminal.mm */,
 				2C11C5621013A4E500A2746E /* VT100Types.h */,
 			);
 			name = VT100;
@@ -1040,7 +1040,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C11C5801013A54300A2746E /* VT100Terminal.m in Sources */,
+				2C11C5801013A54300A2746E /* VT100Terminal.mm in Sources */,
 				2C11C5821013A54300A2746E /* VT100.m in Sources */,
 				2C11C5831013A54300A2746E /* VT100Screen.m in Sources */,
 				2C11C5841013A54300A2746E /* ColorMap.m in Sources */,

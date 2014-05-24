@@ -139,8 +139,8 @@
 typedef struct {
     int type;
     unsigned char *position;
-    int length;
-    struct {
+    size_t length;
+    union {
         NSString *string;
         unsigned char code;
         struct {
