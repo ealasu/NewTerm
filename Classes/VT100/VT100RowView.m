@@ -17,7 +17,7 @@
     CTFontRef ctFont = [fontMetrics ctFont];
     CFAttributedStringRef string = [stringSupplier newAttributedString:rowIndex];
     // Make a new copy of the line of text with the correct font
-    int length = CFAttributedStringGetLength(string);
+    CFIndex length = CFAttributedStringGetLength(string);
     CFMutableAttributedStringRef stringWithFont =
             CFAttributedStringCreateMutableCopy(kCFAllocatorDefault, length, string);
     CFAttributedStringSetAttribute(stringWithFont, CFRangeMake(0, length),

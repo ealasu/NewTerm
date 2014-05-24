@@ -28,7 +28,7 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
-    int index = [indexPath indexAtPosition:1];
+    int index = (int)[indexPath indexAtPosition:1];
     GestureItem *gestureItem = [gestureSettings gestureItemAtIndex:index];
     cell.textLabel.text = gestureItem.name;
     // This must re-validate the action in case the action label isn't valid.
@@ -43,7 +43,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    int index = [indexPath indexAtPosition:1];
+    int index = (int)[indexPath indexAtPosition:1];
     [self startEditing:[gestureSettings gestureItemAtIndex:index]];
 }
 

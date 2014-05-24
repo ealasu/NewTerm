@@ -95,9 +95,9 @@
             [[NSArray alloc] initWithContentsOfFile:path];
     if ([inputs count] % 2 != 0) {
         NSLog(@"GestureInputActions contains invalid number of entries: %d",
-                [inputs count]);
+                (int)[inputs count]);
     } else {
-        NSLog(@"Loaded %u input gestures from file", [inputs count]);
+        NSLog(@"Loaded %u input gestures from file", (int)[inputs count]);
         for (int i = 0; i < [inputs count]; i += 2) {
             NSString *label = [inputs objectAtIndex:i];
             NSString *command = [inputs objectAtIndex:(i + 1)];
