@@ -20,16 +20,16 @@
 // implementing the ScreenBuffer protocol.
 @interface VT100 : NSObject <ScreenBuffer, ScreenBufferRefreshDelegate> {
 @private
-	VT100Screen *screen;
-	VT100Terminal *terminal;
-	id <ScreenBufferRefreshDelegate> refreshDelegate;
-	
-	// Points on the screen
-	ScreenPosition selectionStart;
-	ScreenPosition selectionEnd;
+    VT100Screen *screen;
+    VT100Terminal *terminal;
+    id <ScreenBufferRefreshDelegate> refreshDelegate;
+
+    // Points on the screen
+    ScreenPosition selectionStart;
+    ScreenPosition selectionEnd;
 }
 
-@property (nonatomic, retain) id <ScreenBufferRefreshDelegate> refreshDelegate;
+@property(nonatomic, retain) id <ScreenBufferRefreshDelegate> refreshDelegate;
 
 // Initialize a VT100
 - (id)init;
@@ -43,11 +43,14 @@
 // ScreenBuffer methods for obtaining information about the characters
 // currently on the screen.
 - (void)setScreenSize:(ScreenSize)size;
+
 - (ScreenSize)screenSize;
 
 // The row specified here also includes the scrollback buffer.
-- (screen_char_t*)bufferForRow:(int)row;
+- (screen_char_t *)bufferForRow:(int)row;
+
 - (int)numberOfRows;
+
 - (unsigned)scrollbackLines;
 
 - (ScreenPosition)cursorPosition;
@@ -55,8 +58,11 @@
 - (void)clearScreen;
 
 - (void)clearSelection;
+
 - (BOOL)hasSelection;
+
 - (void)setSelectionStart:(ScreenPosition)point;
+
 - (void)setSelectionEnd:(ScreenPosition)point;
 
 @end

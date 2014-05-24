@@ -7,12 +7,13 @@
 // Forks a terminal subprocess.
 @interface SubProcess : NSObject {
 @private
-	pid_t child_pid;
-	int fd;
-	NSFileHandle *fileHandle;
+    pid_t child_pid;
+    int fd;
+    NSFileHandle *fileHandle;
 }
 
 - (id)init;
+
 - (void)dealloc;
 
 // Forks a terminal subprocess and initializes the fileHandle for communication.

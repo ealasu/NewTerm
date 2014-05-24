@@ -18,9 +18,9 @@
 // The TerminalView handles restarting a subprocess when it exits.
 @interface TerminalController : NSObject <TerminalKeyboardProtocol>
 
-@property (nonatomic, retain) VT100TableViewController *tableViewController;
-@property (nonatomic, retain) UIFont *font;
-@property (nonatomic, retain, readonly) ColorMap *colorMap;
+@property(nonatomic, retain) VT100TableViewController *tableViewController;
+@property(nonatomic, retain) UIFont *font;
+@property(nonatomic, retain, readonly) ColorMap *colorMap;
 
 // Must be invoked to start the sub processes
 - (void)startSubProcess;

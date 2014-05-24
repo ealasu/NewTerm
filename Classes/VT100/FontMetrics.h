@@ -11,13 +11,13 @@
 
 - (instancetype)initWithFont:(UIFont *)font;
 
-@property (nonatomic, retain, readonly) UIFont *font;
-@property (readonly) CTFontRef ctFont;
+@property(nonatomic, retain, readonly) UIFont *font;
+@property(readonly) CTFontRef ctFont;
 
 // The dimensions of a single glyph on the screen
-@property (readonly) CGSize boundingBox;
-@property (readonly) CGFloat descent;
-@property (readonly) CGFloat ascent;
-@property (readonly) CGFloat leading;
+@property(readonly) CGSize boundingBox;
+@property(readonly) CGFloat descent;
+@property(readonly) CGFloat ascent;
+@property(readonly) CGFloat leading;
 
 @end
